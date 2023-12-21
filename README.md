@@ -1,0 +1,2 @@
+# SoloProject
+Codesmith solo project 
