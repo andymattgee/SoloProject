@@ -1,23 +1,36 @@
 import React,{useState,useEffect} from 'react';
+import './style.scss';
 
-const testComponent = () => {
+const Hikelist = () => {
     const [hikes, setHikes ] = useState([]);
     
     useEffect(() => {
-        fetch('http://localhost:3001/hikes')
-            .then(response => response.json())
+        fetch('http://localhost:9000/hikes',{
+            method: "GET" 
+        })
+            .then(response => {
+                if(!response.ok){
+                    throw new Error(
+                        `This is an HTTP error: The status is ${response.status}`
+                    );
+                }
+                return response.json()
+            })
             .then(data => {
                 console.log('data ->', data);
                 setHikes(data.data);
             })
     },[]);
 
-const hikeTable = hikes.map(hike =>
-    <tr>
-    <td>{hike.name}</td>
-    <td>{hike.location}</td>
-    <td>{hike.miles}</td>
+const hikeTable = hikes.map(({name,location,miles,_id}) => //destructured out from hike object
+    
+    <tr key={_id}>   
+    <td>{name}</td>
+    <td>{location}</td>
+    <td>{miles}</td>
+    <td><button>{_id}</button></td>
     </tr>
+    
     );
     
     return (
@@ -35,6 +48,9 @@ const hikeTable = hikes.map(hike =>
                         <th>
                             Miles
                         </th>
+                        <th>
+                            Icons?
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -46,4 +62,4 @@ const hikeTable = hikes.map(hike =>
     )
 };
 
-export default testComponent
+export default Hikelist

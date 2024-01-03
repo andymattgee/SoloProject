@@ -13,9 +13,10 @@ app.use(express.json()); //this is middle ware that will parse incoming JSON req
 
 //will handle cors if errors pop up, not very specific or safe
 app.use(cors());
+
 // this will be more specific for routes and from our server 
 // app.use(cors({
-//     origin : 'http://localhost:3001',
+//     origin : 'http://localhost:9000',
 //     methods : ['GET', 'POST', 'PUT', 'DELETE'],
 //     allowedHeaders : ['Content-Type'],
 // }));
@@ -158,8 +159,6 @@ mongoose
     .catch((err) => {
         console.log('error w DB');
     });
-// app.listen(PORT, () =>{
-//     console.log(`Listening on port ${PORT}`);
-// })
+
 
 
