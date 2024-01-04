@@ -11,6 +11,7 @@ module.exports = {
     output: {
         filename: 'bundle.js',
         path: path.join(__dirname,'build'),
+        publicPath:'/',
         clean: true,
         assetModuleFilename:'[name][ext]'
     },
@@ -20,6 +21,7 @@ module.exports = {
             directory: path.resolve(__dirname,'build'),
             publicPath: '/build/',
         },
+        historyApiFallback: true,
         port: 3000,
         open: true,
         hot: true,

@@ -1,7 +1,9 @@
 .table {
-    border: 5px solid grey;
+    border: 5px solid purple;
     width: 800px;
-    height: 500px
+    height: 500px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 th {
@@ -24,13 +26,13 @@ $base-color: rgb(59, 226, 148);
         background-color: #6200EE;
         text-align: center;
     }
-    .nav{
-        display: flex;
-        justify-content: center;
-        flex-grow: 4;
-        gap: 120px;
+    // .nav{
+    //     display: flex;
+    //     justify-content: center;
+    //     flex-grow: 4;
+    //     gap: 120px;
 
-    }
+    // }
     h1{
         color: $base-color;
     }

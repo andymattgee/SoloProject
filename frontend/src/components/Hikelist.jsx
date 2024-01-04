@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from 'react';
 import './style.scss';
+import {Link} from 'react-router-dom';
 
 const Hikelist = () => {
     const [hikes, setHikes ] = useState([]);
@@ -17,25 +18,28 @@ const Hikelist = () => {
                 return response.json()
             })
             .then(data => {
-                console.log('data ->', data);
+                // console.log('data ->', data);
                 setHikes(data.data);
             })
     },[]);
 
 const hikeTable = hikes.map(({name,location,miles,_id}) => //destructured out from hike object
-    
+  
     <tr key={_id}>   
-    <td>{name}</td>
+    <td><Link to={`/hikes/details/${_id}`}>{name}</Link></td>
     <td>{location}</td>
     <td>{miles}</td>
-    <td><button>{_id}</button></td>
-    </tr>
+    <td>{_id}</td>
+    <td></td>
+    <td><button><Link to={`/hikes/details/${_id}`}>Details Here</Link></button></td>
+    <td><button><Link to={`hikes/delete/${_id}`}>Delete Hike</Link></button></td>
     
+    </tr>
     );
     
     return (
         <div>
-            <h2>List of Hikes (from testing.jsx)</h2>
+            
             <table className='table'>
                 <thead>
                     <tr>
@@ -49,7 +53,16 @@ const hikeTable = hikes.map(({name,location,miles,_id}) => //destructured out fr
                             Miles
                         </th>
                         <th>
-                            Icons?
+                            _Id
+                        </th>
+                        <th>
+                            Link to pictures?
+                        </th>
+                        <th>
+                            Info
+                        </th>
+                        <th>
+                            Delete?
                         </th>
                     </tr>
                 </thead>
@@ -57,7 +70,11 @@ const hikeTable = hikes.map(({name,location,miles,_id}) => //destructured out fr
                         {hikeTable}
                 </tbody>
             </table>
-            <p>No. of hikes: {hikes.length}</p>
+            <div style={{display:'flex',justifyContent:'center',gap:'50px'}}>
+            <p>No. of hikes: {hikes.length} </p>
+            <button style={{background:'transparent'}}><Link to='/hikes/create'>Create a new Hike here!</Link></button>
+            
+            </div>
         </div>
     )
 };

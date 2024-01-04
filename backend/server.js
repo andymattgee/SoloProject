@@ -27,7 +27,13 @@ app.use(cors());
 // or 
 // import hikeController from './hikeController.js';
 
-
+// app.get('/*', function(req, res) {
+//     res.sendFile(path.join(__dirname, '../frontend/src/index.html'), function(err) {
+//       if (err) {
+//         res.status(500).send(err)
+//       }
+//     })
+//   })
 
 //serves up the homepage 
 app.get('/',(req,res) =>{
