@@ -6,6 +6,7 @@ import mongoose from 'mongoose';
 import hikesRoute from './routes/hikesRoute.js'; //imports router from hikesRoute.js
 import cors from 'cors';
 
+
 const app = express();
 
 app.use(express.json()); //this is middle ware that will parse incoming JSON requests and put the parsed data in the req.body. Since it is placed before other routes and uses 'app.use' syntax, it will parse all incoming requests. 
@@ -22,19 +23,6 @@ app.use(cors());
 // }));
 
 
-//require in your controller file 
-// const hikeController = require('./hikeController.js');
-// or 
-// import hikeController from './hikeController.js';
-
-// app.get('/*', function(req, res) {
-//     res.sendFile(path.join(__dirname, '../frontend/src/index.html'), function(err) {
-//       if (err) {
-//         res.status(500).send(err)
-//       }
-//     })
-//   })
-
 //serves up the homepage 
 app.get('/',(req,res) =>{
     // console.log(req);
@@ -47,6 +35,7 @@ app.get('/test', (req,res) => {
 //router that handles all hikes to /hikes
 //any request to /hikes will re-route to hikesRoutes.js and be filter accordingly
 app.use('/hikes', hikesRoute);
+
 
 //__________________________commented out routes here_______________________________________
 // //route to save hike
@@ -166,5 +155,13 @@ mongoose
         console.log('error w DB');
     });
 
+//____________________________________ image stuff_____________
+// const multer  = require('multer')
+import multer from 'multer';
+const upload = multer({ dest: 'uploads/' });
 
 
+app.post('/upload-image', upload.single("image"), (req,res) =>{
+    console.log(req.body);
+    res.send("uploaded!");
+});

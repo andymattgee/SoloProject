@@ -29,7 +29,7 @@ const hikeTable = hikes.map(({name,location,miles,_id}) => //destructured out fr
     <td><Link to={`/hikes/details/${_id}`}>{name}</Link></td>
     <td>{location}</td>
     <td>{miles}</td>
-    <td>{_id}</td>
+    {/* <td>{_id}</td> */}
     <td><button>Link to pics eventually</button></td>
     {/* <td><button><Link to={`/hikes/details/${_id}`}>Details Here</Link></button></td> */}
     <td><button><Link to={`hikes/delete/${_id}`}>Delete Hike</Link></button></td>
@@ -52,9 +52,9 @@ const hikeTable = hikes.map(({name,location,miles,_id}) => //destructured out fr
                         <th>
                             Miles
                         </th>
-                        <th>
+                        {/* <th>
                             _Id
-                        </th>
+                        </th> */}
                         <th>
                             Link to pictures?
                         </th>

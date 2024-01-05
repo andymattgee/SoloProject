@@ -64,6 +64,9 @@ const ShowHikes = () =>{
             <div>
                 <button><Link to={`/hikes/edit/${id}`}>Edit Hike here</Link></button>
                 <button><Link to ={`/hikes/delete/${id}`}>Delete Hike</Link></button>
+                <br/>
+                <button><Link to={`/hikes/imageloader/${id}`}>Upload Images</Link></button>
+
             </div>
         </div>
     )

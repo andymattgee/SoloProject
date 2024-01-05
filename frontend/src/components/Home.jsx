@@ -3,8 +3,10 @@ import './style.scss';
 import Hikelist from './Hikelist';
 import hikingDog from '../assets/pexels-spencer-gurley-films-1448055.jpg';
 
+
 const Home = () => {
-       
+    
+    
     
     return (
         <div
@@ -16,7 +18,7 @@ const Home = () => {
                 </h1>
                 
             </div>   
-            <div><h3 style={{textAlign:'center'}}>User lands here and has list of hikes displayed</h3></div> 
+            <div><h3 style={{textAlign:'center'}}>List of Hikes</h3></div> 
         
         <br></br>
         <Hikelist/>
