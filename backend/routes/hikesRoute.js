@@ -16,6 +16,8 @@ router.post('/',async (req,res) =>{
             name : req.body.name,
             location : req.body.location,
             miles : req.body.miles,
+            description : req.body.description,
+            rating : req.body.rating,
         };
         // console.log('new hike -->', newHike);
         const hike  = await Hike.create(newHike);

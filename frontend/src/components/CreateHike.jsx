@@ -7,13 +7,17 @@ const CreateHike = () =>{
     const [name,setName] = useState('');
     const [location,setLocation] = useState('');
     const [miles,setMiles] = useState('');
+    const [description,setDescription] = useState('');
+    const [rating, setRating] = useState('');
     const navigate = useNavigate();
 
-    const createBookHandler = () =>{
+    const createHikeHandler = () =>{
         const hikeInfo = {
             name,
             location,
             miles,
+            description,
+            rating,
         };
         const requestOptions ={
             method:'POST',
@@ -27,7 +31,7 @@ const CreateHike = () =>{
                         `HTTP Error: status -> ${response.status}`
                     );
                 }
-                console.log(response);
+                // console.log(response);
                 navigate('/');
             })
             .catch(error =>{
@@ -44,6 +48,7 @@ const CreateHike = () =>{
            <div>
             <label>   Hike Name </label>
             <input
+            placeholder={name}
             type = 'text'
             value ={name}
             onChange={(e) => setName(e.target.value)}>
@@ -60,6 +65,15 @@ const CreateHike = () =>{
            </div>
 
            <div>
+            <label>   Description </label>
+            <input
+            type = 'text'
+            value ={description}
+            onChange={(e) => setDescription(e.target.value)}>
+            </input>
+           </div>
+           
+           <div>
             <label>   Mileage </label>
             <input
             type = 'text'
@@ -67,7 +81,18 @@ const CreateHike = () =>{
             onChange={(e) => setMiles(e.target.value)}>
             </input>
            </div>
-            <button onClick={createBookHandler}> Submit Hike! </button>
+           
+           <div>
+            <label>   Rating </label>
+            <input
+            type = 'text'
+            value ={rating}
+            onChange={(e) => setRating(e.target.value)}>
+            </input>
+           </div>
+
+
+            <button onClick={createHikeHandler}> Submit Hike! </button>
         </div>
     )
 }

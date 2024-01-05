@@ -24,28 +24,47 @@ const ShowHikes = () =>{
             setHike(data)
         })
     },[]);
-    console.log('hike state =>', hike);
+    // console.log('hike state =>', hike);
     return(
         <div
-        style={{padding:'50px'}}>
+        style={{padding:'50px', textAlign:'center'}}>
             Show hike details here:
-            <div
-            style={{display:'flex', justifyContent:'center', gap:'15px'}}>
-                <h3>Hike Name</h3>
-                <p>{hike.name}</p>
-            </div>
-            <div
-            style={{display:'flex', justifyContent:'center', gap:'15px'}}>
-                <h3>Hike Location</h3>
-                <p>{hike.location}</p>
-            </div>
-            <div
-            style={{display:'flex', justifyContent:'center', gap:'15px'}}>
-                <h3>Mileage</h3>
-                <p>{hike.miles}</p>
+            <div style={{border:'solid'}}>
+                <div
+                style={{display:'flex', justifyContent:'center', gap:'15px'}}>
+                    <h3>Hike Name:</h3>
+                    <p>{hike.name}</p>
+                </div>
+                <div
+                style={{display:'flex', justifyContent:'center', gap:'15px'}}>
+                    <h3>Hike Location:</h3>
+                    <p>{hike.location}</p>
+                </div>
+                
+                <div
+                style={{display:'flex', justifyContent:'center', gap:'15px'}}>
+                    <h3>Description:</h3>
+                    <p>{hike.description}</p>
+                </div>
+                
+                <div
+                style={{display:'flex', justifyContent:'center', gap:'15px'}}>
+                    <h3>Mileage:</h3>
+                    <p>{hike.miles}</p>
+                </div>
+                
+                <div
+                style={{display:'flex', justifyContent:'center', gap:'15px'}}>
+                    <h3>Rating</h3>
+                    <p>{hike.rating}</p>
+                </div>
+
             </div>
             <br/><br/>
-            <><button><Link to='/hikes/edit/:id'>Edit Hike here</Link></button></>
+            <div>
+                <button><Link to={`/hikes/edit/${id}`}>Edit Hike here</Link></button>
+                <button><Link to ={`/hikes/delete/${id}`}>Delete Hike</Link></button>
+            </div>
         </div>
     )
 }
