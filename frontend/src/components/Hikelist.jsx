@@ -1,6 +1,9 @@
 import React,{useState,useEffect} from 'react';
 import './style.scss';
 import {Link} from 'react-router-dom';
+import {FcFullTrash} from 'react-icons/fc';
+import hikingDog from '../assets/pexels-spencer-gurley-films-1448055.jpg';
+
 
 const Hikelist = () => {
     const [hikes, setHikes ] = useState([]);
@@ -26,13 +29,14 @@ const Hikelist = () => {
 const hikeTable = hikes.map(({name,location,miles,_id}) => //destructured out from hike object
   
     <tr key={_id}>   
-    <td><Link to={`/hikes/details/${_id}`}>{name}</Link></td>
-    <td>{location}</td>
-    <td>{miles}</td>
+    <td ><Link to={`/hikes/details/${_id}`} className='link-name'><h3 className='hike-name'>{name}</h3></Link></td>
+    <td className='location-text'>{location}</td>
+    <td className='miles-text'>{miles}</td>
     {/* <td>{_id}</td> */}
-    <td><button>Link to pics eventually</button></td>
-    {/* <td><button><Link to={`/hikes/details/${_id}`}>Details Here</Link></button></td> */}
-    <td><button><Link to={`hikes/delete/${_id}`}>Delete Hike</Link></button></td>
+    <td><Link to={`/hikes/details/${_id}`}><img  src={hikingDog} alt="" className='puppy-dog' /></Link></td>
+    {/* <td><button><Link to={}>Details Here</Link></button></td> */}
+    {/* <td><button><Link to={`hikes/delete/${_id}`}>Delete Hike</Link></button></td> */}
+    <td><Link to ={`/hikes/delete/${_id}`}><FcFullTrash size={50}/></Link></td>
     
     </tr>
     );
@@ -40,7 +44,7 @@ const hikeTable = hikes.map(({name,location,miles,_id}) => //destructured out fr
     return (
         <div>
             
-            <table className='table'>
+            <table className='table' >
                 <thead>
                     <tr>
                         <th>
@@ -70,9 +74,9 @@ const hikeTable = hikes.map(({name,location,miles,_id}) => //destructured out fr
                         {hikeTable}
                 </tbody>
             </table>
-            <div style={{display:'flex',justifyContent:'center',gap:'50px'}}>
-            <p>No. of hikes: {hikes.length} </p>
-            <button style={{background:'transparent'}}><Link to='/hikes/create'>Create a new Hike here!</Link></button>
+            <div style={{display:'flex',flexDirection:'column',alignItems:'center',gap:'50px'}}>
+            <h1 style={{color:'white'}}>Total Hikes: {hikes.length} </h1>
+            <button className='create-button'><Link to='/hikes/create'>Create a new Hike here!</Link></button>
             
             </div>
         </div>

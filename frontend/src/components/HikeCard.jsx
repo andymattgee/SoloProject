@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import { useEffect,useState } from 'react';
 import { useParams } from 'react-router-dom';
+import {FaStar, } from 'react-icons/fa'
 
 const HikeCard = () =>{
     const [hike,setHike] = useState({});
@@ -53,7 +54,14 @@ const HikeCard = () =>{
                 <div
                 style={{display:'flex', justifyContent:'center', gap:'15px'}}>
                     <h3>Rating</h3>
-                    <p>{hike.rating}</p>
+                    {[...Array(hike.rating)].map((star, index) => {
+        index += 1;
+        return (
+          <div key={index}>
+            <FaStar style={{color:'gold', border:''}}/>
+          </div>
+        );
+      })}
                 </div>
         </div>
     )

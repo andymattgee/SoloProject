@@ -14,18 +14,18 @@ const Home = () => {
         >
             <div className="header">
                 <h1>
-                    Generic Hiking Tracker App | Homepage
+                    Trail Tracker
                 </h1>
                 
             </div>   
-            <div><h3 style={{textAlign:'center'}}>List of Hikes</h3></div> 
+            
         
         <br></br>
         <Hikelist/>
 
-        <hr></hr>
-        <img  src={hikingDog} alt="" width={250} height={350} style={{position: 'absolute', left: '45%', 
-        }}/>
+        {/* <hr></hr> */}
+        {/* <img  src={hikingDog} alt="" width={250} height={350} style={{position: 'absolute', left: '45%',  */}
+        {/* }}/> */}
 
         </div>
     )

@@ -37,7 +37,7 @@ const DeleteHike = () =>{
             <div
             style={{display:'flex',alignItems:'center',flexDirection:'column'}}>
                 <p>Delete Hike?   </p>
-                <button onClick={handleDeleteHike}>Yes</button>
+                <button onClick={handleDeleteHike} className= 'delete-button'>Yes</button>
             </div>
         </div>
     )

@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import { useEffect,useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Hike } from '../../../backend/models/hikeModel';
+import {FaStar, } from 'react-icons/fa'
 
 const ShowHikes = () =>{
     const [hike,setHike] = useState({});
@@ -21,11 +22,13 @@ const ShowHikes = () =>{
             return response.json();
         })
         .then(data => {
-            console.log('data inside useEffect ->',data);
-            setHike(data)
+            // console.log('data inside useEffect ->',data);
+            setHike(data);
+            
         })
     },[]);
     console.log('hike state =>', hike);
+
     return(
         <div
         style={{padding:'50px', textAlign:'center'}}>
@@ -57,30 +60,30 @@ const ShowHikes = () =>{
                 <div
                 style={{display:'flex', justifyContent:'center', gap:'15px'}}>
                     <h3>Rating</h3>
-                    {/* <p>{hike.rating}</p> */}
                     {[...Array(hike.rating)].map((star, index) => {
         index += 1;
         return (
-          <button
-            type="button"
-            key={index}
-            // className={index <= (hover || rating) ? "on" : "off"}
-            // onClick={() => setRating(index)}
-            // onMouseEnter={() => setHover(index)}
-            // onMouseLeave={() => setHover(rating)}
-          >
-            <span className="star fs-2">&#9733;</span>
-            
-          </button>
+          <div key={index}>
+            <FaStar style={{color:'gold', border:''}}/>
+          </div>
         );
       })}
+      {/* {
+      [...Array(3)].map((star, index) => {
+        index += 1;
+        return (
+          <div key={index}>
+            <FaRegStar/>
+          </div>
+        );
+      })} */}
                 </div>
 
             </div>
             <br/><br/>
             <div>
-                <button><Link to={`/hikes/edit/${id}`}>Edit Hike here</Link></button>
-                <button><Link to ={`/hikes/delete/${id}`}>Delete Hike</Link></button>
+                <button className='edit-button'><Link to={`/hikes/edit/${id}`} >Edit Hike here</Link></button>
+                <button className='delete-button'><Link to ={`/hikes/delete/${id}`}>Delete Hike</Link></button>
                 <br/>
                 {/* <button><Link to={`/hikes/imageloader/${id}`}>Upload Images</Link></button> */}
 

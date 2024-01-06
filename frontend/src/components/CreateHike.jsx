@@ -11,7 +11,7 @@ const CreateHike = () => {
     const [miles, setMiles] = useState('');
     const [description, setDescription] = useState('');
     const [rating, setRating] = useState('');
-    const [image,setImage] = useState('');
+    const [image, setImage] = useState('');
     const [hover, setHover] = useState(0);
     const navigate = useNavigate();
 
@@ -59,10 +59,10 @@ const CreateHike = () => {
             })
     };
     // console.log('hike ->', name, location, miles);
-//_______________________________________
+    //_______________________________________
     // const submitImage = async (e) => {
     //     e.preventDefault();
-    
+
     //     const formData = new FormData();
     //     formData.append("image", image);
     //     console.log('image -->',image);
@@ -80,81 +80,90 @@ const CreateHike = () => {
     //             console.log("error ->", err);
     //         })
     //   };
-    
+
     // const handlePhoto = (e) =>{
     //     console.log(e.target.files[0]);
     //     setImage(e.target.files[0]);
     // }
 
     return (
-        <div
-            style={{ textAlign: 'center', padding: '50px 0px', backgroundColor: 'rgb(59, 226, 148)', height: '100vh', }}
-        >
-            Template/input fields here to create a new hike!
+        
+            <div className='form-page'>
+                <div className='form-container'>
+                    <label>   Hike Name </label>
+                    <input
+                    style={{width:'255px',}}
+                        placeholder={name}
+                        type='text'
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}>
+                    </input>
+                
 
-            <div>
-                <label>   Hike Name </label>
-                <input
-                    placeholder={name}
-                    type='text'
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}>
-                </input>
-            </div>
+                
+                    <label>   Location </label>
+                    <input
+                    style={{width:'255px',}}
+                        type='text'
+                        value={location}
+                        onChange={(e) => setLocation(e.target.value)}>
+                    </input>
+                
 
-            <div>
-                <label>   Location </label>
-                <input
-                    type='text'
-                    value={location}
-                    onChange={(e) => setLocation(e.target.value)}>
-                </input>
-            </div>
-
-            <div>
-                <label>   Description </label>
-                <input
+                
+                    <label>   Description </label>
+                    {/* <input
+                        type='text'
+                        value={description}
+                        onChange={(e) => setDescription(e.target.value)}>
+                    </input> */}
+                    <textarea
                     type='text'
                     value={description}
-                    onChange={(e) => setDescription(e.target.value)}>
-                </input>
-            </div>
+                    onChange={(e) => setDescription(e.target.value)}
+                    rows="10"
+                    cols="30"
+                    >
 
-            <div>
-                <label>   Mileage </label>
-                <input
-                    type='text'
-                    value={miles}
-                    onChange={(e) => setMiles(e.target.value)}>
-                </input>
-            </div>
+                    </textarea>
+                
 
-            <div style={{display:'flex', justifyContent:'center'}}>
-                <label>   Rating </label>
-                {/* <input
+                
+                    <label>   Mileage </label>
+                    <input
+                        type='text'
+                        value={miles}
+                        onChange={(e) => setMiles(e.target.value)}>
+                    </input>
+                
+
+                <div style={{ display: 'flex', justifyContent: 'center', marginTop:'20px' }}>
+                    <label>   Rating </label>
+                    {/* <input
                     type='text'
                     value={rating}
                     onChange={(e) => setRating(e.target.value)}>
                 </input> */}
-                {[...Array(10)].map((star, index) => {
-        index += 1;
-        return (
-          <button
-            type="button"
-            key={index}
-            className={index <= (hover || rating) ? "on" : "off"}
-            onClick={() => setRating(index)}
-            onMouseEnter={() => setHover(index)}
-            onMouseLeave={() => setHover(rating)}
-          >
-            <span className="star fs-2">&#9733;</span>
-            
-          </button>
-        );
-      })}
-            </div>
+                    {[...Array(10)].map((star, index) => {
+                        index += 1;
+                        return (
+                            <button
+                                type="button"
+                                key={index}
+                                className={index <= (hover || rating) ? "on" : "off"}
+                                onClick={() => setRating(index)}
+                                onMouseEnter={() => setHover(index)}
+                                onMouseLeave={() => setHover(rating)}
+                                
+                            >
+                                <span className="star fs-2" style={{size:'50'}}>&#9733;</span>
 
-            {/* <div>
+                            </button>
+                        );
+                    })}
+                </div>
+
+                {/* <div>
                 <form encType='multipart/form-data'>
                     <input 
                     type='file' 
@@ -172,9 +181,10 @@ const CreateHike = () => {
                 </form>
             </div> */}
 
-            <button onClick={createHikeButtonHandler} style={{border:'solid', background:'white'}}> Submit Hike! </button>
-            
-        </div>
+                <button onClick={createHikeButtonHandler} className='create-button'> Submit Hike! </button>
+                </div>
+            </div>
+        
     )
 }
 export default CreateHike;

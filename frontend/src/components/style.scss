@@ -1,5 +1,27 @@
+$base-color: rgb(59, 226, 148);
+
+//this removes underlines/decorations from link text 
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+}
+
+
 .table {
-    border: 5px solid purple;
+    background-color: rgba(255, 255, 255, 0.65); //opacity, change last number between 0 and 1 
+    border: 5px solid #6200EE;
+    border-radius: 20px;
     width: 800px;
     height: 500px;
     margin-left: auto;
@@ -8,25 +30,125 @@
 
 th {
     border-bottom: 2px solid black;
-    
+
 }
 
 td {
     text-align: center;
 }
 
+.update-button {
+    background-color: gold;
+    border: solid;
+    height: 75px;
+    width: 250px;
+    color: black;
+    margin-top: 45px;
+    border-radius: 15px;
 
+    &:hover {
+        background: orange;
+        transition: 0.4s;
+    }
+
+    &:active {
+        background-color: blue;
+    }
+}
+
+.edit-button {
+    background-color: gold;
+    border: solid;
+    height: 75px;
+    width: 250px;
+    color: black;
+    margin-top: 45px;
+    border-radius: 15px;
+
+    &:hover {
+        background: orange;
+        transition: 0.4s;
+    }
+
+    &:active {
+        background-color: blue;
+    }
+}
+
+.delete-button {
+    background-color: gold;
+    border: solid;
+    height: 75px;
+    width: 250px;
+    color: black;
+    margin-top: 45px;
+    border-radius: 15px;
+
+    &:hover {
+        background: orange;
+        transition: 0.4s;
+    }
+
+    &:active {
+        background-color: blue;
+    }
+}
+
+.delete-button {
+    background-color: gold;
+    border: solid;
+    height: 75px;
+    width: 250px;
+    color: black;
+    margin-top: 45px;
+    border-radius: px;
+
+    &:hover {
+        background: orange;
+        transition: 0.4s;
+    }
+
+    &:active {
+        background-color: blue;
+    }
+}
+
+.create-button {
+    background-color: gold;
+    border: solid;
+    height: 75px;
+    width: 250px;
+    color: black;
+    margin-top: 45px;
+    border-radius: 20px;
+    opacity: .8;
+
+    &:hover {
+        background: orange;
+        transition: 0.4s;
+    }
+
+    &:active {
+        background-color: blue;
+    }
+}
 
 //sass syntax
-$base-color: rgb(59, 226, 148);
 .container {
     height: 100vh;
-    background-color: $base-color;
-    .header{
+    // background-color: $base-color;
+    background: url('../../src/assets/lake-trees.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+    .header {
         padding: 15px 20px;
         background-color: #6200EE;
         text-align: center;
     }
+
     // .nav{
     //     display: flex;
     //     justify-content: center;
@@ -34,13 +156,14 @@ $base-color: rgb(59, 226, 148);
     //     gap: 120px;
 
     // }
-    h1{
+    h1 {
         color: $base-color;
     }
-    .navButton{
+
+    .navButton {
         width: 100px;
         height: 24px;
-        
+
     }
 }
 
@@ -49,11 +172,72 @@ button {
     border: none;
     outline: none;
     cursor: pointer;
-  }
-  .on {
+}
+
+.on {
     color: #ffd900;
-  }
-  .off {
+}
+
+.off {
     color: #ffd90073;
-  }
-  
+}
+
+
+.puppy-dog {
+    width: 100px, ;
+    height: 125px;
+    border: solid;
+    border-width: 2px;
+    border-color: white;
+    border-radius: 20px;
+    opacity: .85;
+}
+
+.hike-name {
+    color: blue;
+    font-size: 30px;
+
+    &:hover {
+        color: green;
+    }
+
+}
+
+.location-text {
+    font-size: 25px;
+    color: blue;
+
+}
+
+.miles-text {
+    font-size: 20px;
+    color: rgb(137, 57, 166);
+
+}
+
+.form-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: solid;
+    text-align: center;
+    padding: 50px 0px;
+    height: 100vh;
+    background: url('../assets/board-hike.jpg');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.form-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: solid;
+    border-color: rgba(255, 255, 255, .4);
+    margin-top: 100px;
+    background-color: rgba(255, 255, 255, .6);
+    padding: 100px;
+    border-radius: 20px;
+}

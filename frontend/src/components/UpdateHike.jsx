@@ -144,7 +144,7 @@ const UpdateHike = () =>{
 
 
 
-            <button onClick={UpdateHikeHandler}> Submit New Hike Data! </button>
+            <button onClick={UpdateHikeHandler} className='update-button'> Submit New Hike Data! </button>
         </div>
     )
 }
