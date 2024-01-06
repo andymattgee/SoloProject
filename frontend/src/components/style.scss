@@ -15,9 +15,7 @@ td {
     text-align: center;
 }
 
-// ::placeholder {
-//     color:red;
-// }
+
 
 //sass syntax
 $base-color: rgb(59, 226, 148);
@@ -45,3 +43,17 @@ $base-color: rgb(59, 226, 148);
         
     }
 }
+
+button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+  .on {
+    color: #ffd900;
+  }
+  .off {
+    color: #ffd90073;
+  }
+  

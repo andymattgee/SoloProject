@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import { useEffect,useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { Hike } from '../../../backend/models/hikeModel';
 
 const ShowHikes = () =>{
     const [hike,setHike] = useState({});
@@ -24,7 +25,7 @@ const ShowHikes = () =>{
             setHike(data)
         })
     },[]);
-    // console.log('hike state =>', hike);
+    console.log('hike state =>', hike);
     return(
         <div
         style={{padding:'50px', textAlign:'center'}}>
@@ -56,7 +57,23 @@ const ShowHikes = () =>{
                 <div
                 style={{display:'flex', justifyContent:'center', gap:'15px'}}>
                     <h3>Rating</h3>
-                    <p>{hike.rating}</p>
+                    {/* <p>{hike.rating}</p> */}
+                    {[...Array(hike.rating)].map((star, index) => {
+        index += 1;
+        return (
+          <button
+            type="button"
+            key={index}
+            // className={index <= (hover || rating) ? "on" : "off"}
+            // onClick={() => setRating(index)}
+            // onMouseEnter={() => setHover(index)}
+            // onMouseLeave={() => setHover(rating)}
+          >
+            <span className="star fs-2">&#9733;</span>
+            
+          </button>
+        );
+      })}
                 </div>
 
             </div>
@@ -65,7 +82,7 @@ const ShowHikes = () =>{
                 <button><Link to={`/hikes/edit/${id}`}>Edit Hike here</Link></button>
                 <button><Link to ={`/hikes/delete/${id}`}>Delete Hike</Link></button>
                 <br/>
-                <button><Link to={`/hikes/imageloader/${id}`}>Upload Images</Link></button>
+                {/* <button><Link to={`/hikes/imageloader/${id}`}>Upload Images</Link></button> */}
 
             </div>
         </div>

@@ -157,11 +157,21 @@ mongoose
 
 //____________________________________ image stuff_____________
 // const multer  = require('multer')
-import multer from 'multer';
-const upload = multer({ dest: 'uploads/' });
+// const Hike = require('./models/hikeModel.js');
 
+// import multer from 'multer';
 
-app.post('/upload-image', upload.single("image"), (req,res) =>{
-    console.log(req.body);
-    res.send("uploaded!");
-});
+// const storage = multer.diskStorage({
+//     destination: (req, file, cb) => {
+//       cb(null, '../frontend/public/uploads/');
+//     },
+//     filename: (req, file, cb) => {
+//       cb(null, Date.now() + '-' + file.originalname);
+//     },
+//   });
+//   const upload = multer({ storage: storage });
+
+// app.post('/hikes/imageloader/:id', upload.single("image"), (req,res) =>{
+//     console.log(req.body);
+//     res.send("uploaded!");
+// });

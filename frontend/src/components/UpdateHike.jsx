@@ -10,6 +10,7 @@ const UpdateHike = () =>{
     const [miles,setMiles] = useState('');
     const [description, setDescription] = useState('');
     const [rating,setRating] = useState('');
+    const [hover, setHover] = useState(0);
 
     const navigate = useNavigate();
     const{id} = useParams();
@@ -117,12 +118,28 @@ const UpdateHike = () =>{
 
            <div>
             <label>   Rating</label>
-            <input
+            {/* <input
             placeholder={rating}
             type = 'text'
             // value ={miles}
             onChange={(e) => setRating(e.target.value)}>
-            </input>
+            </input> */}
+            {[...Array(10)].map((star, index) => {
+        index += 1;
+        return (
+          <button
+            type="button"
+            key={index}
+            className={index <= (hover || rating) ? "on" : "off"}
+            onClick={() => setRating(index)}
+            onMouseEnter={() => setHover(index)}
+            onMouseLeave={() => setHover(rating)}
+          >
+            <span className="star fs-2">&#9733;</span>
+            
+          </button>
+        );
+      })}
            </div>
 
 

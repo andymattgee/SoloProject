@@ -3,6 +3,18 @@ import express from 'express';
 const router = express.Router(); //allows us make a router for any request to /hikes and import to server.js
 import { Hike } from '../models/hikeModel.js';
 
+// import multer from 'multer';
+
+// const storage = multer.diskStorage({
+//     destination: (req, file, cb) => {
+//       cb(null, '../frontend/public/uploads/');
+//     },
+//     filename: (req, file, cb) => {
+//       cb(null, Date.now() + '-' + file.originalname);
+//     },
+//   });
+//   const upload = multer({ storage: storage });
+
 //eventually distinguish routes to another files for middle ware 
 //route to save hike
 router.post('/',async (req,res) =>{
@@ -18,12 +30,13 @@ router.post('/',async (req,res) =>{
             miles : req.body.miles,
             description : req.body.description,
             rating : req.body.rating,
+            // image: req.file.originalname,
         };
         // console.log('new hike -->', newHike);
         const hike  = await Hike.create(newHike);
         return res.status(200).send(`${hike.name} saved!`); 
     } catch (err){
-        console.log(err.message);
+        console.log(err.message, 'Error coming from the post route in hikesRoute');
         res.status(500).send({message : err.message});
     }
     
@@ -36,9 +49,9 @@ router.get('/', async (req,res) =>{
         const hikes = await Hike.find({});
         // console.log(JSON.stringify(hikes));
         return res.status(200).json({ //will return obj of proper w list of hikes being one 
-            count : hikes.length,
+            // count : hikes.length,
             data : hikes,
-            sample : hikes[0].name,
+            
         });
     } catch (err){ 
         console.log(err.message);

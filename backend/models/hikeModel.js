@@ -9,7 +9,8 @@ const HikeSchema = new Schema (
     location: {type: String, required: true},
     miles: {type: Number, required: true},
     description: {type: String, required : true},
-    rating : {type: Number},
+    rating : {type: Number, required : false},
+    image : {type : String, required : false},
     },
     {
     timestamps : true,
