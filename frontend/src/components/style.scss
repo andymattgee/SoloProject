@@ -20,16 +20,20 @@ a:active {
 
 .table {
     background-color: rgba(255, 255, 255, 0.65); //opacity, change last number between 0 and 1 
-    border: 5px solid #6200EE;
+    border: 5px solid;
+    border-color:whitesmoke;
     border-radius: 20px;
-    width: 800px;
+    width: 1200px;
     height: 500px;
     margin-left: auto;
     margin-right: auto;
 }
 
+
 th {
-    border-bottom: 2px solid black;
+    // border-bottom: 2px solid white;
+    font-size: 30px;
+    // background-color: white;
 
 }
 
@@ -38,16 +42,19 @@ td {
 }
 
 .update-button {
-    background-color: gold;
+    font-size: 25px;
+    color:rgb(230, 218, 218);
+    background-color: blue;
     border: solid;
     height: 75px;
     width: 250px;
-    color: black;
+    // color: black;
     margin-top: 45px;
     border-radius: 15px;
+    border-color: black;;
 
     &:hover {
-        background: orange;
+        background: purple;
         transition: 0.4s;
     }
 
@@ -57,6 +64,7 @@ td {
 }
 
 .edit-button {
+    font-size:25px;
     background-color: gold;
     border: solid;
     height: 75px;
@@ -76,12 +84,14 @@ td {
 }
 
 .delete-button {
-    background-color: gold;
+    background-color: rgba(228, 10, 10,);
     border: solid;
-    height: 75px;
-    width: 250px;
-    color: black;
-    margin-top: 45px;
+    border-color: black;
+    height: 100px;
+    width: 300px;
+    color: white;
+    font-size: 35px;
+    // margin-top: 45px;
     border-radius: 15px;
 
     &:hover {
@@ -93,15 +103,40 @@ td {
         background-color: blue;
     }
 }
+.delete-button-text{
+    font-size: 25px;
+}
 
-.delete-button {
+.delete-button-card {
+    background-color: rgb(249, 18, 14);
+    font-size: 25px;
+    color: white;
+    border: solid;
+    height: 75px;
+    width: 250px;
+   
+    margin-top: 45px;
+    border-radius: 20px;
+    border-color: black;
+
+    &:hover {
+        background: orange;
+        transition: 0.4s;
+    }
+
+    &:active {
+        background-color: blue;
+    }
+}
+.image-button {
+    font-size: 25px;
     background-color: gold;
     border: solid;
     height: 75px;
     width: 250px;
     color: black;
-    margin-top: 45px;
-    border-radius: px;
+    margin-top: 15px;
+    border-radius: 20px;
 
     &:hover {
         background: orange;
@@ -114,6 +149,7 @@ td {
 }
 
 .create-button {
+    font-size: 20px;
     background-color: gold;
     border: solid;
     height: 75px;
@@ -137,7 +173,8 @@ td {
 .container {
     height: 100vh;
     // background-color: $base-color;
-    background: url('../../src/assets/lake-trees.jpg') no-repeat center center fixed;
+    // background: url('../../src/assets/lake-trees.jpg');
+    background: url('/frontend/src/assets/orHike.jpg');
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -145,7 +182,8 @@ td {
 
     .header {
         padding: 15px 20px;
-        background-color: #6200EE;
+        // background-color: #6200EE;
+        // background-color: rgba(18, 219, 179, 0.1);
         text-align: center;
     }
 
@@ -166,7 +204,35 @@ td {
 
     }
 }
-
+.card-container{
+    background-color: rgba(255, 255, 255,.8);
+    border: solid;
+    border-color:rgb(69, 69, 141);
+    border-width: 5px;
+    // margin-top: 100px;
+    // padding-top: 20px;
+    margin-left: 500px;
+    margin-right: 500px;
+    border-radius: 25px;
+}
+.delete-page-container{
+    height: 100vh;
+    background: url('/frontend/src/assets/cliff.jpg');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    padding-top: 50px
+}
+.show-hike-page-container{
+    height: 100vh;
+    background: url('/frontend/src/assets/fall-hike.jpg');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    padding-top: 50px
+}
 button {
     background-color: transparent;
     border: none;
@@ -195,10 +261,10 @@ button {
 
 .hike-name {
     color: blue;
-    font-size: 30px;
+    font-size: 25px;
 
     &:hover {
-        color: green;
+        color: red;
     }
 
 }
@@ -230,6 +296,47 @@ button {
     background-size: cover;
 }
 
+.edit-page{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    padding: 25px;
+    
+    // border: solid;
+    background: url(../assets//snow-hike.jpg);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+}
+.edit-page-form{
+    // display:flex;
+    // flex-direction: row;
+    // align-items: center;
+    border: solid;
+    border-color: white ;
+    border-radius: 25px;
+   background-color: rgba(255, 255, 255,.6);
+   padding-top:20px;
+   padding-left: 75px;
+   padding-right: 75px;
+   padding-bottom: 50px;
+
+}
+
+.edit-form-labels{
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.edit-div{
+    padding-top: 40px;
+    display:flex;
+    flex-direction: column;
+}
 .form-container{
     display: flex;
     flex-direction: column;
@@ -241,3 +348,41 @@ button {
     padding: 100px;
     border-radius: 20px;
 }
+
+.form-labels{
+    padding-top: 10px;
+    font-size: 25px;
+    font-weight: bold;
+    
+}
+
+input[type='text']{
+    font-size: 20px;
+}
+textarea[type='text']{
+    font-size: 25px;
+}
+
+.had-one-gif{
+    display: flex;
+    justify-content: center;
+    padding-top: 200px;
+    // width: 1000px;
+    // height: auto;
+}
+.upload-block{
+    display: flex;
+    justify-content: center;
+    padding-top: 100px;
+}
+//carousel 
+.splide__slide img{
+    width:100%;
+    height:auto;
+}
+
+// .home-header{
+//     // background-color:rgb(230, 230, 238)
+//     font-size: 60px;
+//     color: red
+// }

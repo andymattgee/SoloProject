@@ -13,7 +13,9 @@ const Home = () => {
         className="container"
         >
             <div className="header">
-                <h1>
+                <h1 className='home-header' 
+                style={{color:'white', fontSize:'50px'}}
+                >
                     Trail Tracker
                 </h1>
                 

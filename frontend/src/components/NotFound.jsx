@@ -2,7 +2,11 @@ import React from 'react'
 
 const NotFound = () => {
   return (
-    <div>Uh Oh, seems like you got lost on this big adventure called life, better back track friend</div>
+    <div>
+      <h1 style={{textAlign:'center', paddingTop:'200px'}}>You look lost, head home</h1>
+      <br></br>
+      <h3>Travolta gif here</h3>
+      </div>
   )
 }
 

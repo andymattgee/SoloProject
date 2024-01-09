@@ -1,12 +1,14 @@
 import React,{useState,useEffect} from 'react';
 import './style.scss';
-import {Link} from 'react-router-dom';
+import {Link, Navigate, useNavigate} from 'react-router-dom';
 import {FcFullTrash} from 'react-icons/fc';
 import hikingDog from '../assets/pexels-spencer-gurley-films-1448055.jpg';
 
 
 const Hikelist = () => {
     const [hikes, setHikes ] = useState([]);
+
+    const navigate = useNavigate();
     
     useEffect(() => {
         fetch('http://localhost:9000/hikes',{
@@ -26,6 +28,9 @@ const Hikelist = () => {
             })
     },[]);
 
+    const onCreateClick = () => {
+        navigate('/hikes/create');
+    }
 const hikeTable = hikes.map(({name,location,miles,_id}) => //destructured out from hike object
   
     <tr key={_id}>   
@@ -47,7 +52,7 @@ const hikeTable = hikes.map(({name,location,miles,_id}) => //destructured out fr
             <table className='table' >
                 <thead>
                     <tr>
-                        <th>
+                        <th className='table-head'>
                             Hike Name
                         </th>
                         <th>
@@ -60,13 +65,13 @@ const hikeTable = hikes.map(({name,location,miles,_id}) => //destructured out fr
                             _Id
                         </th> */}
                         <th>
-                            Link to pictures?
+                            Link to pictures
                         </th>
                         {/* <th>
                             Info
                         </th> */}
                         <th>
-                            Delete?
+                            Delete
                         </th>
                     </tr>
                 </thead>
@@ -76,7 +81,7 @@ const hikeTable = hikes.map(({name,location,miles,_id}) => //destructured out fr
             </table>
             <div style={{display:'flex',flexDirection:'column',alignItems:'center',gap:'50px'}}>
             <h1 style={{color:'white'}}>Total Hikes: {hikes.length} </h1>
-            <button className='create-button'><Link to='/hikes/create'>Create a new Hike here!</Link></button>
+            <button className='create-button' onClick={onCreateClick}>Create a new Hike here!</button>
             
             </div>
         </div>

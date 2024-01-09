@@ -25,8 +25,9 @@ const HikeCard = () =>{
         })
     },[]);
     return(
-        <div
-        style={{border:'solid'}}>
+        <div className='card-container'
+        // style={{background:'red'}}
+        >
             <div
             style={{display:'flex', justifyContent:'center', gap:'0px 15px'}}>
                 <h3>Hike Name</h3>

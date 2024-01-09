@@ -2,7 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import StarRating from './StarComponent';
+import OrHike from '../assets/orHike.jpg';
+
+import {FaStar, } from 'react-icons/fa'
 import "./style.scss";
 
 const CreateHike = () => {
@@ -11,10 +13,11 @@ const CreateHike = () => {
     const [miles, setMiles] = useState('');
     const [description, setDescription] = useState('');
     const [rating, setRating] = useState('');
-    const [image, setImage] = useState('');
+    const [image, setImage] = useState(OrHike);
     const [hover, setHover] = useState(0);
     const navigate = useNavigate();
 
+    console.log('image ->', image);
     const createHikeButtonHandler = () => {
         const hikeInfo = { //this was working before image
             name,
@@ -50,12 +53,11 @@ const CreateHike = () => {
                         `HTTP Error: status -> ${response.status}`
                     );
                 }
-                // console.log(response);
                 navigate('/');
             })
             .catch(error => {
                 console.log('error from with in fetch req in CreateHike');
-                alert('Error, from catch block in fetch of CreateHike', error)
+                alert('error from fetch req in CreateHike route')
             })
     };
     // console.log('hike ->', name, location, miles);
@@ -90,7 +92,7 @@ const CreateHike = () => {
         
             <div className='form-page'>
                 <div className='form-container'>
-                    <label>   Hike Name </label>
+                    <label className='form-labels'>   Hike Name </label>
                     <input
                     style={{width:'255px',}}
                         placeholder={name}
@@ -101,17 +103,18 @@ const CreateHike = () => {
                 
 
                 
-                    <label>   Location </label>
+                    <label className='form-labels'>   Location </label>
                     <input
                     style={{width:'255px',}}
                         type='text'
                         value={location}
-                        onChange={(e) => setLocation(e.target.value)}>
-                    </input>
+                        onChange={(e) => setLocation(e.target.value)}
+                        >
+                    </input >
                 
 
                 
-                    <label>   Description </label>
+                    <label className='form-labels'>   Description </label>
                     {/* <input
                         type='text'
                         value={description}
@@ -126,10 +129,7 @@ const CreateHike = () => {
                     >
 
                     </textarea>
-                
-
-                
-                    <label>   Mileage </label>
+                    <label className='form-labels'>   Mileage </label>
                     <input
                         type='text'
                         value={miles}
@@ -138,12 +138,7 @@ const CreateHike = () => {
                 
 
                 <div style={{ display: 'flex', justifyContent: 'center', marginTop:'20px' }}>
-                    <label>   Rating </label>
-                    {/* <input
-                    type='text'
-                    value={rating}
-                    onChange={(e) => setRating(e.target.value)}>
-                </input> */}
+                    <label className='form-labels'>   Rating:  </label>
                     {[...Array(10)].map((star, index) => {
                         index += 1;
                         return (
@@ -153,17 +148,17 @@ const CreateHike = () => {
                                 className={index <= (hover || rating) ? "on" : "off"}
                                 onClick={() => setRating(index)}
                                 onMouseEnter={() => setHover(index)}
-                                onMouseLeave={() => setHover(rating)}
-                                
+                                onMouseLeave={() => setHover(rating)}     
                             >
-                                <span className="star fs-2" style={{size:'50'}}>&#9733;</span>
-
+                                <span className="star fs-2" style={{}}><  FaStar size={30}/></span>
                             </button>
                         );
                     })}
                 </div>
 
-                {/* <div>
+                <div>
+                    <hr></hr>
+                    <br></br>
                 <form encType='multipart/form-data'>
                     <input 
                     type='file' 
@@ -173,13 +168,18 @@ const CreateHike = () => {
                     onChange={(e) => {
                         setImage(e.target.files[0]);
                         console.log('file/image info ->',e.target.files[0]);
+
                         }
                         }>
 
                     </input>
-                    <button type='submit'>Submit</button>
+                    {/* <button type='submit'>Submit</button> */}
+                    <div>
+                        <p> image preview here</p>
+                        <img src={image} style={{width:'300px', height:'200px'}}/>
+                    </div>
                 </form>
-            </div> */}
+            </div>
 
                 <button onClick={createHikeButtonHandler} className='create-button'> Submit Hike! </button>
                 </div>

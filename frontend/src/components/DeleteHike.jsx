@@ -32,11 +32,14 @@ const DeleteHike = () =>{
     };
     return(
         <div
-        style={{padding:'50px'}}>
+        // style={{padding:'50px'}}
+        className='delete-page-container'
+        >
             <HikeCard/>
             <div
-            style={{display:'flex',alignItems:'center',flexDirection:'column'}}>
-                <p>Delete Hike?   </p>
+            style={{display:'flex',alignItems:'center',flexDirection:'column'}}
+            >
+                <p className='delete-button-text'>Delete Hike?   </p>
                 <button onClick={handleDeleteHike} className= 'delete-button'>Yes</button>
             </div>
         </div>

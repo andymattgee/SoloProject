@@ -15,7 +15,7 @@ const App = () =>{
     return(
         <>
         <nav style={{textAlign:'center'}}>
-            <ul style={{listStylePosition:'inside', listStyleType:'none', backgroundColor:'lavender', margin:'0px'}}>
+            <ul style={{listStylePosition:'inside', listStyleType:'none', backgroundColor:'rgb(230, 230, 238, .5)', margin:'0px'}}>
                 <li>Super Cool NavBar</li>
                 <li><Link to='/'>Home</Link></li>
                 <li><Link to='/hikes/create'>Create a new Hike here!</Link></li>
